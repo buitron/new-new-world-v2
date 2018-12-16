@@ -54,14 +54,15 @@ body {
   shape-rendering: crispEdges;
 }
 
-#map {
-    height: 900px;
-}
-
 .legend {
     color: black;
     background-color: white;
     margin: 5px;
     padding: 10px;
     border-radius: 5px;
+    text-align: left;
+}
+
+.leaflet-control-layers-list {
+  text-align: left;
 }
