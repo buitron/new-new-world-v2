@@ -3,60 +3,15 @@
     <h2 class="text-center text-uppercase text-white">Graphical Dancing</h2>
     <hr class="star-light mb-5">
   </div>
-</section>
-
-<section id="maxTemp" class="bg-white portfolio">
-  <h3 class="text-uppercase ml-5 mt-4">Average Max Temp</h3>
-  <div class="row m-0">
-    <iframe class="col-lg-8 mr-auto" src="{{ url_for('static', filename='iFrames/d3_2.html') }}" height="820" frameborder="0" scrolling="yes"></iframe>
-    <div class="col-lg-4 ml-auto">
-      <br>
-      <p class="lead">The average max temperature for Sauvignon Blanc growing locations exhibit mild fluctuations over the months, as ideal climates for cultivating Sauvignon Blanc are moderate and generally do not exceed 85 degrees fahrenheit.</p>
-      <p class="lead"> In cooler climates, the grape may produce wines with noticeable acidity and flavors of grass, green bell peppers, tropical fruit, and floral notes. In warmer climates, it can develop more tropical fruit notes but also grapefruit and and peach notes and may require earlier harvesting.</p>
-    </div>
-  </div>
-</section>
-
-<section id="minTemp" class="bg-white portfolio">
-  <div class="row">
-    <div class="col-lg-8 ml-auto">
-      <h3 class="text-uppercase ml-5 mt-4">Average Min Temp</h3>
-    </div>
-  </div>
-  <div class="row m-0">
-    <div class="col-lg-4 mr-auto">
-      <br>
-      <p class="lead">The average minimum temperature of Sauvignon Blanc growing locations are lower than some other popular wines such as Cabernet Sauvignon. The average minimum temperature for Sauvignon Blanc growth is roughly 40 degrees fahrenheit. This allows for more versatile growing regions, more resilient crops, and a varietal that can take on many flavor characteristics because of its adaptability.</p>
-      <p class="lead">There is a correlation between the temperature fluctuations of daily maximum and minimum temperatures during growing season and wine ratings. The fluctuations are ideal for grape growth as the stress develops flavors in the grapes that translate to complexity in the wine.</p>
-    </div>
-    <iframe class="col-lg-8 ml-auto" src="{{ url_for('static', filename='iFrames/d3_3.html') }}" height="820" frameborder="0" scrolling="yes"></iframe>
-  </div>
-</section>
-
-<section id="precip" class="bg-white portfolio">
-  <h3 class="text-uppercase ml-5 mt-4">Average Precipitation</h3>
-  <div class="row m-0">
-    <iframe class="col-lg-8 mr-auto" src="{{ url_for('static', filename='iFrames/d3_3.html') }}" height="820" frameborder="0" scrolling="yes"></iframe>
-    <div class="col-lg-4 ml-auto">
-      <br>
-      <p class="lead">Precipitation plays a crucial role to the development of the fruit throughout the growing season. Excessive water stress (lack of water) early in the fruit growth can be very damaging, although water stress during the development can develop flavors in the fruit by slowing the growth of the berry. </p>
-      <p class="lead">Precipitation and soil makeup are closely tied and when considered together can strongly impact the development of the fruit and the subsequent wine. The organic material and flora in the soil respond to the available water content. Soil components respond differently to holding moisture, for example, sand does not hold water well, but clay retains enough moisture to nourish plant life, but creates an ideal amount of water stress, making clay an ideal component in soil used for wine cultivation. These factors, combined with precipitation, play a part vital in the flavor evolution of Sauvignon Blanc grapes.</p>
-    </div>
-  </div>
-</section>
-
-<section id="humid" class="bg-white portfolio">
-  <div class="row">
-    <div class="col-lg-8 ml-auto">
-      <h3 class="text-uppercase ml-5 mt-4">Average Humidity</h3>
-    </div>
-  </div>
-  <div class="row m-0">
-    <div class="col-lg-4 mr-auto">
-      <br>
-      <p class="lead">The presence of humidity at the right time in the Sauvignon Blanc fruit growth can have remarkable effects of the development, which is why we were able to detect a notable correlation of humidity levels and Wine Enthusiast ratings.</p>
-      <p class="lead">Just as flora in the soil affects the outcome of the wine, so does the flora above the soil. Very high and very low humidity can adversely influence grape development but moderate and consistent humidity can support the growth of wanted cultures leading to some of the most sought after wines in the world.</p>
-    </div>
-    <iframe class="col-lg-8 ml-auto" src="{{ url_for('static', filename='iFrames/d3_4.html') }}" height="820" frameborder="0" scrolling="yes"></iframe>
+  <div class="container-fluid">
+    <div id="line-charts"></div>
+    <select id="select-chart" autofocus>
+      <option value="{{ url_for('static', filename='data/sb_max_temp.csv') }}, Avg Max Temp - Degrees Fahrenheit" selected="selected">Max Temperature</option>
+      <option value="{{ url_for('static', filename='data/sb_min_temp.csv') }}, Avg Min Temp - Degrees Fahrenheit">Min Temperature</option>
+      <option value="{{ url_for('static', filename='data/sb_humid.csv') }}, Avg Humidity - By Percentage">Humidity</option>
+      <option value="{{ url_for('static', filename='data/sb_precip.csv') }}, Avg Precipitation - Decimal Percentage">Precipitation</option>
+    </select>
+    <button id="clear-all" type="button" name="button">Clear The Chart</button>
+    <<div class="explanation-box">Hover Here</div>
   </div>
 </section>

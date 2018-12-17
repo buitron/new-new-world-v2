@@ -4,3 +4,4 @@ __pycache__
 .ipynb_checkpoints
 README.html
 venv
+config.sh

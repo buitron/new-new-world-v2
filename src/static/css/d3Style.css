@@ -2,12 +2,43 @@ body {
   font: 10px sans-serif;
 }
 
+/* explanations */
+.explanation-box {
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
+    color: #000;
+    border: 2px solid #808080;
+    padding: 10px;
+    cursor: crosshair;
+}
+
+/* line charts */
+#charts .container-fluid {
+  background-color: #fff;
+  position: relative;
+}
+
+#charts #select-chart {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  cursor: pointer;
+}
+
+#charts button#clear-all {
+  position: absolute;
+  top: 40px;
+  right: 30px;
+  cursor: pointer;
+}
+
 .axis path,
 .axis line,
 .axis1 path,
 .axis1 line {
   fill: none;
-  stroke: #E6E7E8;
+  stroke: #e6e7e8;
   shape-rendering: crispEdges;
 }
 
@@ -25,12 +56,12 @@ body {
 }
 
 #mouse-tracker {
-  stroke: #E6E7E8;
+  stroke: #e6e7e8;
   stroke-width: 1px;
 }
 
 .hover-line {
-  stroke: #E6E7E8;
+  stroke: #e6e7e8;
   fill: none;
   stroke-width: 1px;
   left: 10px;
@@ -42,7 +73,7 @@ body {
   stroke: none;
   font-size: 30px;
   font-weight: bold;
-  fill: #000000;
+  fill: #000;
 }
 
 .tooltip {
@@ -50,8 +81,8 @@ body {
 }
 
 .brush .extent {
-  stroke: #FFF;
   shape-rendering: crispEdges;
+  fill: #808080;
 }
 
 .legend {
