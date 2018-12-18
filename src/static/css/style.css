@@ -1,82 +1,16 @@
-/* Map Section */
-#map {
-  height: 900px; /* change with media query*/
-}
-
-#map #wineMap {
-  height: 90%;
-  width: 100%;
-}
-/* End Map */
-
-.video-header {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-}
-
-.wrap {
-    max-width: 960px;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    margin: auto;
-    text-align: center;
-}
-
-.fullscreen-video-wrap {
+/* EXPLANATIONS */
+.explanation-box {
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100%;
+    bottom: 10px;
+    right: 30px;
+    color: #000;
+    border: 2px solid #808080;
+    padding: 10px;
+    cursor: crosshair;
+    z-index: 999;
 }
 
-.fullscreen-video-wrap video {
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    transform: translateX(-50%) translateY(-50%);
-    /*background-size: cover;*/
-    /*transition: 1s opacity;*/
-    position: fixed;
-}
-
-.header-overlay {
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0.8;
-}
-
-.header-content {
-    z-index: 2;
-    margin-top: 30%;
-    padding: 0 5rem;
-}
-
-.header-content h1 {
-    font-size: 50px;
-    margin-bottom: 0;
-}
-
-.header-content p {
-    font-size: 1.5rem;
-    display: block;
-    padding-bottom: 2rem;
-    margin-top: 10px;
-}
-
-@media(max-width: 768px) {
-    .header-content h1 {font-size: 70px;}
-    .header-content p {font-size: 1rem;}
-}
-
+/* PRELOAD */
 #loading {
     width: 100%;
     height: 100%;
@@ -84,12 +18,223 @@
     left: 0;
     position: fixed;
     display: block;
-    opacity: 0.9;
+    opacity: 0.95;
     background-color: #fff;
-    z-index: 99;
+    z-index: 98;
     text-align: center;
 }
 
 #loading-image {
-    z-index: 100;
+    z-index: 99;
+}
+
+/* IMAGE HEADER */
+.video-header {
+    height: 60vh;
+}
+
+.fullscreen-video-wrap video {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -99;
+}
+
+/* text inside of video */
+.header-overlay {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.6;
+}
+
+.header-content {
+    margin-top: 20%;
+    text-align: center;
+}
+
+.header-content .display {
+  display: inline-block;
+  text-align: left;
+  width: 65%;
+}
+
+.header-content .display h1 {
+    font-size: 50px;
+}
+
+.header-content .display p {
+    font-size: 20px;
+    /* padding-top: 10px; */
+}
+
+/* EXPLANATORIUM */
+section#intro {
+  position: relative;
+  height: 90vh;
+  width: 100%;
+  padding-top: 5%;
+  -webkit-clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);
+  clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);
+  z-index: 9
+}
+
+#intro .container {
+  padding-top: 150px;
+}
+
+/* MAP SECTION */
+section#map {
+  position: relative;
+  background-color: #fff;
+  height: 180vh;
+  width: 100%;
+  margin: -180px 0 00;
+  padding-top: 20%;
+  display: block;
+  text-align: center;
+}
+
+#map #wineMap {
+  height: 600px;
+}
+
+#map .display {
+  display: inline-block;
+  text-align: right;
+  width: 65%;
+}
+
+#map .display h1 {
+    font-size: 50px;
+}
+
+#map .display p {
+    font-size: 20px;
+}
+
+#map .legend {
+    color: black;
+    background-color: white;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+#map form.leaflet-control-layers-list label {
+  margin-bottom: 0;
+}
+
+#map .leaflet-control-layers-list {
+  text-align: left;
+}
+
+/* CHARTS */
+section#charts {
+  position: relative;
+  height: 180vh;
+  margin-top: -360px;
+  padding-top: 20%;
+  -webkit-clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+  z-index: 9;
+}
+
+/* line charts */
+#charts .chart-container {
+  position: relative;
+  background-color: #fff;
+  height: 80vh;
+  font: 10px sans-serif;
+}
+
+#charts div#line-charts {
+  /* margin-top: 40px; */
+}
+
+#charts #select-chart {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  cursor: pointer;
+}
+
+#charts button#clear-all {
+  position: absolute;
+  top: 40px;
+  right: 30px;
+  cursor: pointer;
+}
+
+#charts .axis path,
+#charts .axis line,
+#charts .axis1 path,
+#charts .axis1 line {
+  fill: none;
+  stroke: #e6e7e8;
+  shape-rendering: crispEdges;
+}
+
+#charts .x.axis path, .x.axis1 path {
+  display: none;
+}
+
+#charts .line {
+  fill: none;
+  stroke-width: 1.5px;
+}
+
+#charts .legend-box, .legend-box-2 {
+  cursor: pointer;
+}
+
+#charts #mouse-tracker {
+  stroke: #e6e7e8;
+  stroke-width: 1px;
+}
+
+#charts .hover-line {
+  stroke: #e6e7e8;
+  fill: none;
+  stroke-width: 1px;
+  left: 10px;
+  shape-rendering: crispEdges;
+  opacity: 1e-6;
+}
+
+#charts .hover-text {
+  stroke: none;
+  font-size: 30px;
+  font-weight: bold;
+  fill: #000;
+}
+
+#charts .tooltip {
+  font-weight: normal;
+}
+
+#charts .brush .extent {
+  shape-rendering: crispEdges;
+  fill: #808080;
+}
+
+#charts .row .display {
+  display: inline-block;
+  text-align: left;
+  width: 65%;
+}
+
+#charts .row .display h1 {
+    font-size: 50px;
+}
+
+#charts .row .display p {
+    font-size: 20px;
 }

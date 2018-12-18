@@ -1,21 +1,24 @@
-<div class="video-header wrap">
+<section id="video" class="video-header wrap">
   <div class="fullscreen-video-wrap">
-    <video autoplay loop>
+    <video autoplay loop muted>
       <source src="{{ url_for('static', filename='videos/mountain-film-2.mp4') }}" type="video/mp4">
       <source src="{{ url_for('static', filename='videos/mountain-film-2.ogv') }}" type="video/ogg">
+        Your browser does not support the video tag.
     </video>
     <div class="header-overlay">
       <div class="header-content text-white">
-        <h1 class="text-uppercase mb-0">Who Doesn't Like Sauvignon Blanc?</h1>
-        <p>Your friendly web-application designed to provide you with relevant info on grape cultivating locations, optimized for Sauvignon Blanc.</p>
+        <div class="display">
+          <h1 class="text-uppercase mb-0">Who Doesn't Like Sauvignon Blanc?</h1>
+          <p>Your friendly web-application designed to provide you with relevant info on grape cultivating locations, optimized for Sauvignon Blanc.</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <section id="intro" class="bg-primary text-white mb-0">
   <div class="container">
-    <h2 class="text-center text-uppercase text-white">Explanitorium</h2>
+    <h2 class="text-center text-uppercase text-white">Explanatorium</h2>
     <hr class="star-light mb-5">
     <div class="row">
       <div class="col-lg-6 mr-auto">

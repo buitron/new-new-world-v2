@@ -34,9 +34,8 @@
     crossorigin=""/>
 
     <!-- Custom styles for this template -->
-    <link href="{{ url_for('static', filename='css/freelancer.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='css/d3Style.css') }}" rel="stylesheet">
+    <!-- <link href="{{ url_for('static', filename='css/d3Style.css') }}" rel="stylesheet"> -->
 
   </head>
 
@@ -72,7 +71,7 @@
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#charts">Charts</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">My Location</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#info">My Location</a>
             </li>
           </ul>
         </div>
@@ -90,9 +89,6 @@
 
     <!-- Form Section -->
     {% include 'includes/form.html' %}
-
-    <!-- GET user data -->
-    {% include 'includes/table.html' %}
 
     <!-- Footer -->
     <footer class="footer text-center">
@@ -167,10 +163,6 @@
 
     <!-- extra markers -->
     <script src="{{ url_for('static', filename='js/leaflet.extra-markers.min.js') }}"></script>
-
-    <!-- Contact Form JavaScript -->
-    <script src="{{ url_for('static', filename='js/jqBootstrapValidation.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/contact_me.js') }}"></script>
 
     <!-- Custom scripts for this template -->
     <script src="{{ url_for('static', filename='js/content.js') }}"></script>

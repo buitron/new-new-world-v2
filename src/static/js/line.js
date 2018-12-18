@@ -2,13 +2,15 @@
 var chartSelection = document.getElementById('select-chart').value;
 var file = chartSelection.split(",")[0];
 var description = chartSelection.split(",")[1];
-executeChart(file, description);
+var w = document.querySelector('.chart-container').clientWidth;
+var h = document.querySelector('.chart-container').clientHeight;
+executeChart(file, description, h, w);
 
 // Reset Chart
 d3.select("#clear-all")
   .on("click", function() {
     d3.select("#line-charts").selectAll("div > *").remove();
-    executeChart(file, description);
+    executeChart(file, description, h, w);
   });
 
 // Select the data and go into it
@@ -18,24 +20,24 @@ d3.select("#select-chart")
     chartSelection = this.value;
     file = chartSelection.split(",")[0];
     description = chartSelection.split(",")[1];
-    executeChart(file, description);
+    executeChart(file, description, h, w);
   });
 
-function executeChart(insert, title) {
-  var margin = {top: 20, right: 400, bottom: 100, left: 50},
-      margin2 = { top: 430, right: 10, bottom: 20, left: 40 },
-      width = 1400 - margin.left - margin.right,
-      height = 700 - margin.top - margin.bottom,
-      height2 = 500 - margin2.top - margin2.bottom;
+function executeChart(insert, title, h, w) {
+  var margin = {top: h/35*1.1, right: w/3.5*1.75, bottom: h/7, left: w/28},
+      margin2 = { top: h/1.6279, right: w/140, bottom: h/35, left: w/35 },
+      width = w - margin.left - margin.right,
+      height = h - margin.top - margin.bottom,
+      height2 = h/1.4 - margin2.top - margin2.bottom;
 
   var parseDate = d3.time.format("%Y%m%d").parse;
   var bisectDate = d3.bisector((d) => {return d.date;}).left;
 
   var xScale = d3.time.scale()
-      .range([0, width]),
+      .range([0, width + 110]),
 
       xScale2 = d3.time.scale()
-      .range([0, width]);
+      .range([0, width + 110]);
 
   var yScale = d3.scale.linear()
       .range([height, 0]);
@@ -61,14 +63,14 @@ function executeChart(insert, title) {
   var maxY;
 
   var svg = d3.select("#line-charts").append("svg")
-      .attr("width", width + margin.left + margin.right)
+      .attr("width", width + margin.left + margin.right + 100)
       .attr("height", height + margin.top + margin.bottom)
     .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   // Create invisible rect for mouse tracking
   svg.append("rect")
-      .attr("width", width)
+      .attr("width", width + 110)
       .attr("height", height)
       .attr("x", 0)
       .attr("y", 0)
@@ -84,7 +86,7 @@ function executeChart(insert, title) {
     .append("clipPath")
       .attr("id", "clip")
       .append("rect")
-      .attr("width", width)
+      .attr("width", width + 110)
       .attr("height", height);
 
   d3.csv(insert, (error, data) => {
@@ -161,7 +163,7 @@ function executeChart(insert, title) {
     context.append("path")
       .attr("class", "area")
       .attr("d", contextArea(categories[0].values))
-      .attr("fill", "#F1F1F2");
+      .attr("fill", "#f1f1f2");
 
     //append the brush for the selection of subsection
     context.append("g")
@@ -237,7 +239,7 @@ function executeChart(insert, title) {
     issue1.append("rect")
         .attr("width", 50)
         .attr("height", 10)
-        .attr("x", width + (margin.right/10) - 10)
+        .attr("x", width + (margin.right/10) + 85)
         .attr("y", (d, i) => {
           return (legendSpace)+(i-.3)*(legendSpace) - 8;
         })
@@ -269,7 +271,7 @@ function executeChart(insert, title) {
         })
 
         issue1.append("text")
-        .attr("x", width + (margin.right/10) + 5)
+        .attr("x", width + (margin.right/10) + 100)
         .attr("y", (d, i) => {
           return (legendSpace)+(i-.3)*(legendSpace);
         })

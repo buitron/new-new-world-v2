@@ -1,17 +1,24 @@
-<section  id="charts" class="bg-primary text-white mb-0">
-  <div class="container">
-    <h2 class="text-center text-uppercase text-white">Graphical Dancing</h2>
-    <hr class="star-light mb-5">
-  </div>
+<section  id="charts" class="bg-primary">
   <div class="container-fluid">
-    <div id="line-charts"></div>
-    <select id="select-chart" autofocus>
-      <option value="{{ url_for('static', filename='data/sb_max_temp.csv') }}, Avg Max Temp - Degrees Fahrenheit" selected="selected">Max Temperature</option>
-      <option value="{{ url_for('static', filename='data/sb_min_temp.csv') }}, Avg Min Temp - Degrees Fahrenheit">Min Temperature</option>
-      <option value="{{ url_for('static', filename='data/sb_humid.csv') }}, Avg Humidity - By Percentage">Humidity</option>
-      <option value="{{ url_for('static', filename='data/sb_precip.csv') }}, Avg Precipitation - Decimal Percentage">Precipitation</option>
-    </select>
-    <button id="clear-all" type="button" name="button">Clear The Chart</button>
-    <<div class="explanation-box">Hover Here</div>
+    <div class="row">
+      <div class="display col-lg-8 mx-auto">
+          <h1>Location, location, location! </h1>
+          <p>The map below shows the Sauvignon Blanc vineyards ranked by <a href="https://www.winemag.com/">Wine Enthusiast Magazine</a>
+            for the year 2016. Each marker represents a different appellation. By clicking on a marker the legend will update with relevant
+            information for that locale. The container above the legend allows you to filter the selected vineyards further by rank - Best Rated:
+            x&gt;=90, Greatly Rated: 90&gt;x&gt;=85, Moderately Rated: x&gt;85.</p>
+      </div>
+      <div class="chart-container col-lg-8 mx-auto">
+        <div id="line-charts"></div>
+        <select id="select-chart" autofocus>
+          <option value="{{ url_for('static', filename='data/sb_max_temp.csv') }}, Avg Max Temp - Degrees Fahrenheit" selected="selected">Max Temperature</option>
+          <option value="{{ url_for('static', filename='data/sb_min_temp.csv') }}, Avg Min Temp - Degrees Fahrenheit">Min Temperature</option>
+          <option value="{{ url_for('static', filename='data/sb_humid.csv') }}, Avg Humidity - By Percentage">Humidity</option>
+          <option value="{{ url_for('static', filename='data/sb_precip.csv') }}, Avg Precipitation - Decimal Percentage">Precipitation</option>
+        </select>
+        <button id="clear-all" type="button" name="button">Clear The Chart</button>
+        <div class="explanation-box">Hover Here</div>
+      </div>
+    </div>
   </div>
 </section>

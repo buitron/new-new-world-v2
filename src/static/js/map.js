@@ -35,10 +35,10 @@ var overlays = {
   "Moderately Rated Appellation Locations (<85% rating)": layers.OK_LOC
 };
 
-L.control.layers(null, overlays, {collapsed: false}).addTo(map);
+L.control.layers(null, overlays, {collapsed: false, position: 'topleft'}).addTo(map);
 
 var info = L.control({
-  position: "topleft"
+  position: "topright"
 });
 
 info.onAdd = function(){
