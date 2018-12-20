@@ -1,4 +1,6 @@
+/* ------------ */
 /* EXPLANATIONS */
+/* ------------ */
 .explanation-box {
     position: absolute;
     bottom: 10px;
@@ -10,7 +12,9 @@
     z-index: 999;
 }
 
+/* ------- */
 /* PRELOAD */
+/* ------- */
 #loading {
     width: 100%;
     height: 100%;
@@ -28,7 +32,9 @@
     z-index: 99;
 }
 
+/* ------------ */
 /* IMAGE HEADER */
+/* ------------ */
 .video-header {
     height: 60vh;
 }
@@ -74,7 +80,9 @@
     /* padding-top: 10px; */
 }
 
+/* ------------- */
 /* EXPLANATORIUM */
+/* ------------- */
 section#intro {
   position: relative;
   height: 90vh;
@@ -89,13 +97,15 @@ section#intro {
   padding-top: 150px;
 }
 
+/* ----------- */
 /* MAP SECTION */
+/* ----------- */
 section#map {
   position: relative;
   background-color: #fff;
   height: 180vh;
   width: 100%;
-  margin: -180px 0 00;
+  margin-top: -180px;
   padding-top: 20%;
   display: block;
   text-align: center;
@@ -136,7 +146,9 @@ section#map {
   text-align: left;
 }
 
-/* CHARTS */
+/* -------------- */
+/* CHARTS SECTION */
+/* -------------- */
 section#charts {
   position: relative;
   height: 180vh;
@@ -237,4 +249,30 @@ section#charts {
 
 #charts .row .display p {
     font-size: 20px;
+}
+
+/* ------------ */
+/* FORM SECTION */
+/* ------------ */
+section#info {
+  position: relative;
+  background-color: #fff;
+  height: 160vh;
+  width: 100%;
+  margin-top: -340px;
+  padding-top: 20%;
+  display: block;
+  text-align: center;
+}
+
+/* FOOTER */
+footer.footer .designed {
+  background-color: pink;
+  position: relative;
+  bottom: 0;
+  text-align: center;
+}
+
+footer .design .box {
+  display: inline-block;
 }
