@@ -238,10 +238,22 @@ section#charts {
 #charts button#clear-all {
   position: absolute;
   background-color: transparent;
-  top: 50px;
-  right: 30px;
   border: 2px solid #808080;
   cursor: pointer;
+}
+
+@media (min-width: 1430px) {
+  #charts button#clear-all {
+    top: 50px;
+    right: 30px;
+  }
+}
+
+@media (max-width: 1429px) {
+  #charts button#clear-all {
+    top: 10px;
+    left: 30px;
+  }
 }
 
 #charts .axis path,
