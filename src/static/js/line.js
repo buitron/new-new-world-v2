@@ -1,27 +1,76 @@
-// Initial Chart
-var chartSelection = document.getElementById('select-chart').value;
-var file = chartSelection.split(",")[0];
-var description = chartSelection.split(",")[1];
-var w = document.querySelector('.chart-container').clientWidth;
-var h = document.querySelector('.chart-container').clientHeight;
-executeChart(file, description, h, w);
+showChart();
 
-// Reset Chart
-d3.select("#clear-all")
-  .on("click", function() {
-    d3.select("#line-charts").selectAll("div > *").remove();
-    executeChart(file, description, h, w);
-  });
+function showChart() {
+  selection = init();
+  executeChart(selection.file, selection.desc, selection.h_, selection.w_);
+  // responsiveness
+  d3.select(window).on("resize", responsive);
 
-// Select the data and go into it
-d3.select("#select-chart")
-  .on("change", function() {
-    d3.select("#line-charts").selectAll("div > *").remove();
-    chartSelection = this.value;
-    file = chartSelection.split(",")[0];
-    description = chartSelection.split(",")[1];
-    executeChart(file, description, h, w);
-  });
+  // Reset Chart
+  d3.select("#clear-all")
+    .on("click", function() {
+      clearChart();
+      selection = init();
+      executeChart(selection.file, selection.desc, selection.h_, selection.w_);
+    });
+
+  // Select the data and go into it
+  d3.select("#select-chart")
+    .on("change", function() {
+      clearChart();
+      chartSelection = this.value;
+      
+      // change text
+      idSelector = chartSelection.split(",")[0].split(".")[0].slice(13, chartSelection.length);
+      if (idSelector === 'sb_min_temp') {
+        $('#charts .display').children().hide();
+        $('#sb_min_temp').show();
+      } else if (idSelector === 'sb_humid') {
+        $('#charts .display').children().hide();
+        $('#sb_humid').show();
+      } else if (idSelector === 'sb_precip') {
+        $('#charts .display').children().hide();
+        $('#sb_precip').show();
+      } else {
+        $('#charts .display').children().hide();
+        $('#sb_max_temp').show();
+      };
+
+      // define chart variables
+      file = chartSelection.split(",")[0];
+      description = chartSelection.split(",")[1];
+      selection = init();
+      executeChart(selection.file, selection.desc, selection.h_, selection.w_);
+    });
+};
+
+// clear the old chart
+function clearChart() {
+  d3.select("#line-charts").selectAll("div > *").remove();
+};
+
+// Initial Chart variables
+function init() {
+  var chartSelection = document.getElementById('select-chart').value;
+  var file = chartSelection.split(",")[0];
+  var description = chartSelection.split(",")[1];
+  var w = document.querySelector('.chart-container').clientWidth;
+  var h = document.querySelector('.chart-container').clientHeight;
+  return {
+    file: file,
+    desc: description,
+    h_: h,
+    w_: w
+  };
+};
+
+function responsive(){
+  clearChart();
+  selection = init();
+  executeChart(selection.file, selection.desc, selection.h_, selection.w_);
+
+  // executeChart(file, description, new_h, new_w);
+};
 
 function executeChart(insert, title, h, w) {
   var margin = {top: h/35*1.1, right: w/3.5*1.75, bottom: h/7, left: w/28},
@@ -29,6 +78,7 @@ function executeChart(insert, title, h, w) {
       width = w - margin.left - margin.right,
       height = h - margin.top - margin.bottom,
       height2 = h/1.4 - margin2.top - margin2.bottom;
+
 
   var parseDate = d3.time.format("%Y%m%d").parse;
   var bisectDate = d3.bisector((d) => {return d.date;}).left;

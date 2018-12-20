@@ -1,22 +1,45 @@
-<section  id="charts" class="bg-primary">
+<section  id="charts">
   <div class="container-fluid">
     <div class="row">
-      <div class="display col-lg-8 mx-auto">
-          <h1>Location, location, location! </h1>
-          <p>The map below shows the Sauvignon Blanc vineyards ranked by <a href="https://www.winemag.com/">Wine Enthusiast Magazine</a>
-            for the year 2016. Each marker represents a different appellation. By clicking on a marker the legend will update with relevant
-            information for that locale. The container above the legend allows you to filter the selected vineyards further by rank - Best Rated:
-            x&gt;=90, Greatly Rated: 90&gt;x&gt;=85, Moderately Rated: x&gt;85.</p>
+      <div class="display col-lg-10 mx-auto">
+
+        <div id="sb_max_temp" class="chart-text">
+          <h1>Average Max Temperature</h1>
+          <p>The average max temperature for Sauvignon Blanc growing locations exhibit mild fluctuations over the months, as ideal climates for cultivating Sauvignon Blanc are moderate and generally do not exceed 85 degrees fahrenheit.
+
+          In cooler climates, the grape may produce wines with noticeable acidity and flavors of grass, green bell peppers, tropical fruit, and floral notes. In warmer climates, it can develop more tropical fruit notes but also grapefruit and and peach notes and may require earlier harvesting.</p>
+        </div>
+        <div id="sb_min_temp" class="chart-text" style="display: none;">
+          <h1>Average Min Temperature</h1>
+          <p>The average minimum temperature of Sauvignon Blanc growing locations are lower than some other popular wines such as Cabernet Sauvignon. The average minimum temperature for Sauvignon Blanc growth is roughly 40 degrees fahrenheit. This allows for more versatile growing regions, more resilient crops, and a varietal that can take on many flavor characteristics because of its adaptability.
+
+          There is a correlation between the temperature fluctuations of daily maximum and minimum temperatures during growing season and wine ratings. The fluctuations are ideal for grape growth as the stress develops flavors in the grapes that translate to complexity in the wine.</p>
+        </div>
+        <div id="sb_humid" class="chart-text" style="display: none;">
+          <h1>Average Humidity</h1>
+          <p>The presence of humidity at the right time in the Sauvignon Blanc fruit growth can have remarkable effects of the development, which is why we were able to detect a notable correlation of humidity levels and Wine Enthusiast ratings.
+
+          Just as flora in the soil affects the outcome of the wine, so does the flora above the soil. Very high and very low humidity can adversely influence grape development but moderate and consistent humidity can support the growth of wanted cultures leading to some of the most sought after wines in the world.</p>
+        </div>
+        <div id="sb_precip" class="chart-text" style="display: none;">
+          <h1>Average Precipitation</h1>
+          <p>Precipitation plays a crucial role to the development of the fruit throughout the growing season. Excessive water stress (lack of water) early in the fruit growth can be very damaging, although water stress during the development can develop flavors in the fruit by slowing the growth of the berry.
+
+          Precipitation and soil makeup are closely tied and when considered together can strongly impact the development of the fruit and the subsequent wine. The organic material and flora in the soil respond to the available water content. Soil components respond differently to holding moisture, for example, sand does not hold water well, but clay retains enough moisture to nourish plant life, but creates an ideal amount of water stress, making clay an ideal component in soil used for wine cultivation. These factors, combined with precipitation, play a part vital in the flavor evolution of Sauvignon Blanc grapes.</p>
+        </div>
+
       </div>
-      <div class="chart-container col-lg-8 mx-auto">
-        <div id="line-charts"></div>
+      <div class="outer-container col-lg-10 mx-auto">
+        <div class="chart-container">
+          <div id="line-charts"></div>
+        </div>
         <select id="select-chart" autofocus>
           <option value="{{ url_for('static', filename='data/sb_max_temp.csv') }}, Avg Max Temp - Degrees Fahrenheit" selected="selected">Max Temperature</option>
           <option value="{{ url_for('static', filename='data/sb_min_temp.csv') }}, Avg Min Temp - Degrees Fahrenheit">Min Temperature</option>
           <option value="{{ url_for('static', filename='data/sb_humid.csv') }}, Avg Humidity - By Percentage">Humidity</option>
           <option value="{{ url_for('static', filename='data/sb_precip.csv') }}, Avg Precipitation - Decimal Percentage">Precipitation</option>
         </select>
-        <button id="clear-all" type="button" name="button">Clear The Chart</button>
+        <button id="clear-all" class="click-button" type="button" name="button">Clear the Chart</button>
         <div class="explanation-box">Hover Here</div>
       </div>
     </div>
