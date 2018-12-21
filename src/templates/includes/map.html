@@ -11,8 +11,15 @@
       <div class="col-lg-10 mx-auto">
         <div id="wineMap"></div>
         <button id="clear-box" class="click-button" type="button" name="button">Clear the Legend</button>
-        <div class="explanation-box">Hover Here</div>
+        <!-- modal trigger -->
+        <div class="explanation-box" onmouseover="document.getElementById('modal01').style.display='block'" onmouseout="document.getElementById('modal01').style.display='none'">Hover Here</div>
       </div>
+    </div>
+  </div>
+  <!-- the modal -->
+  <div id="modal01" class="w3-modal">
+    <div class="w3-modal-content">
+        <img class="w3-modal-content" src="{{ url_for('static', filename='images/wine_map.gif') }}" style="width:100%;">
     </div>
   </div>
 </section>

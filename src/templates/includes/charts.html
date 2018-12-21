@@ -40,8 +40,15 @@
           <option value="{{ url_for('static', filename='data/sb_precip.csv') }}, Avg Precipitation - Decimal Percentage">Precipitation</option>
         </select>
         <button id="clear-all" class="click-button" type="button" name="button">Clear the Chart</button>
-        <div class="explanation-box">Hover Here</div>
+        <!-- modal trigger -->
+        <div class="explanation-box" onmouseover="document.getElementById('modal02').style.display='block'" onmouseout="document.getElementById('modal02').style.display='none'">Hover Here</div>
       </div>
+    </div>
+  </div>
+  <!-- the modal -->
+  <div id="modal02" class="w3-modal">
+    <div class="w3-modal-content">
+        <img class="w3-modal-content" src="{{ url_for('static', filename='images/charts.gif') }}" style="width:100%;">
     </div>
   </div>
 </section>
