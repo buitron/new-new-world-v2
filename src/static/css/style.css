@@ -223,7 +223,7 @@ section#charts {
   margin-top: -360px;
   padding-top: 30%;
   -webkit-clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
-  clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+  clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
   z-index: 9;
 }
 
